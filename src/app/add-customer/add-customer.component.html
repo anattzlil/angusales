@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Customer Details</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.customer.firstName" placeholder="First name">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.customer.lastName" placeholder="Last name">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-select [(ngModel)] = "data.customer.company_id" placeholder="Company">
+      <mat-option *ngFor="let company of data.companies" [(value)]="company.company_id">
+        {{ company.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.customer.email" placeholder="e-mail">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.customer.phone" placeholder="phone">
+  </mat-form-field>
+</div>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.customer" cdkFocusInitial>Submit</button>
+</div>

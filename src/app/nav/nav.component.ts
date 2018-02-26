@@ -65,13 +65,13 @@ openDialogCompany(): void {
   dialogRef.afterClosed().subscribe(result => {
     console.log(result);
     this.newCompany = result; 
-/*     console.log(result);
-    this.customersService.addCustomer(result).subscribe(
+    console.log(result);
+    this.companiesService.addCompany(result).subscribe(
       data=> {
-        this.customersService.customersChange();
+        this.companiesService.CompaniesChanged();
       },
       error=>{console.log(error);}
-    ); */
+    );
  });
 }
 

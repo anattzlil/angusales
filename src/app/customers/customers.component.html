@@ -1,13 +1,12 @@
 <h3>Customers</h3>
 
 
-
-<div class="container mat-elevation-z8">
-        <div class="example-header">
-          <mat-form-field>
-            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-          </mat-form-field>
-        </div>
+<div class="container mat-elevation-z8 table-body">
+<div class="filter-container">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Search Customer" [(ngModel)]="searchCustomer" (input)="onInput()">
+      </mat-form-field>
+    </div>
   <mat-table [dataSource]="customers">
 
     <!-- firstName Column -->
@@ -45,7 +44,7 @@
       <mat-cell *matCellDef="let element"> 
        <a (click)="deleteCustomer(element)"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
         <i class="fa fa-pencil" aria-hidden="true"></i>
-        <i class="fa fa-ellipsis-h" aria-hidden="true"></i>
+        <a [routerLink]="['customers', element.customer_id]"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></a>
       </mat-cell>
     </ng-container>
 

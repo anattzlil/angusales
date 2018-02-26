@@ -13,6 +13,7 @@ export class CustomersComponent implements OnInit {
   customers : CustomerModel[] = [];
   displayedColumns = ['firstName', 'lastName', 'name', 'Email', 'phone', 'icons'];
   dataSource : MatTableDataSource<CustomerModel>;
+  searchCustomer: string;
   constructor(private customerService: CustomersService, private route: ActivatedRoute) { }
 
   ngOnInit() {
@@ -57,6 +58,13 @@ export class CustomersComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  onInput(){
+    this.customerService.searchCustomer(this.searchCustomer).subscribe(
+      (customers)=>this.customers= customers,
+      error=>console.log(error)
+    );
   }
 
   

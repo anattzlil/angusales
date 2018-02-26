@@ -3,7 +3,7 @@ export class CustomerModel {
     firstName: string;
     lastName: string;
     company_id: number;
-    email: string;
+    Email: string;
     phone: string;
     comments: [{
         dateAdded: Date,

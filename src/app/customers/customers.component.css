@@ -22,3 +22,34 @@
   color: rgb(194, 96, 96);
  }
  
+ .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .mat-form-field {
+    width: 95%;
+    border-bottom: none;
+ }
+
+ input {
+     border-bottom: none;
+ }
+
+ span {
+     width: 100px;
+ }
+
+ .table-body {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .filter-container {
+     padding: 1% 0 0 5%;
+ }

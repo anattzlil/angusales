@@ -17,19 +17,20 @@ customer: CustomerModel = new CustomerModel;
   constructor(private route: ActivatedRoute, private customersService: CustomersService) { }
 
   ngOnInit() {
-    this.tiles = [
-      {mail: '', name: '', cols: 1, rows: 4},
-      {mail: '1',name: 'Two', cols: 1, rows: 4},
-      {mail: '1',name: 'Two', cols: 1, rows: 2},
-      {mail: '',name: '', cols: 1, rows: 2},
-      {mail: '1',name: 'Three', cols: 1, rows: 2},
-      {mail: '',name: '', cols: 1, rows: 2}
-    ];
     this.route.params.subscribe(params => {
       this.customersService.customerById(params.id).subscribe(
         (customer)=>{
         console.log(customer);
         this.customer = customer[0];
+        this.tiles = [
+          {mail: '', name: '', cols: 1, rows: 4},
+          {mail: '1',name: this.customer.firstName + ' ' + this.customer.lastName, cols: 1, rows: 4},
+          {mail: '1',name: this.customer.firstName + ' ' + this.customer.lastName, cols: 1, rows: 2},
+          {mail: '',name: '', cols: 1, rows: 2},
+          {mail: this.customer.Email + ' | ' + this.customer.phone,name: '', cols: 1, rows: 2},
+          {mail: '1',name: '', cols: 1, rows: 2},
+          {mail: '',name: '', cols: 1, rows: 2}
+        ];
         console.log(this.customer);
         },
         (error)=>console.log(error)

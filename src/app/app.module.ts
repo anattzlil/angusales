@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { CustomersService } from './customers.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FilterPipe }from './filter.pipe'
 
 
 import { MaterialImportsModule } from './material-import/material-import.module';
@@ -38,7 +39,8 @@ import { AddCompanyComponent } from './add-company/add-company.component';
     CompaniesComponent,
     CustomerComponent,
     AddCustomerComponent,
-    AddCompanyComponent
+    AddCompanyComponent,
+    FilterPipe
   ],
   imports: [
     MatDialogModule,

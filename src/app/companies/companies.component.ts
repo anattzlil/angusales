@@ -14,7 +14,9 @@ export class CompaniesComponent implements OnInit {
 
   ngOnInit() {
     this.getCompanies();
-  }
+    this.companiesService.getReRenderEmitterCompany().subscribe(
+      ()=>{this.getCompanies()}
+    )}
 
 getCompanies(){
   this.companiesService.getCompanies().subscribe(

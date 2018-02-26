@@ -10,13 +10,21 @@ var db = require('.././db.js');
  */
 
 router.get('/', (req, res)=>{
+  if(req.query.name === undefined){
+  console.log('got request for all customers')
    db.query('SELECT * from customers inner join companies on customers.company_id = companies.company_id', function(err, rows, fields){
      if (!err) {
        res.send(rows);
-       console.log(rows);
       }
      else console.log('error');
    })
+  }else{
+    db.query('SELECT * from customers inner join companies on customers.company_id = companies.company_id WHERE firstName LIKE "%' + req.query.name + '%"', function(err, rows, fields){
+      if (!err) {
+        res.send(rows)
+      }else console.log('error')
+    })
+  }
   });
 
 router.get('/:id', (req, res)=>{

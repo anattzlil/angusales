@@ -9,7 +9,7 @@ import { CompanyModel } from '.././models/companyModel';
 })
 export class CompaniesComponent implements OnInit {
   companies: CompanyModel[] = new Array<CompanyModel>();
-  displayedColumns = ['name', 'address', 'country', 'cnt']
+  displayedColumns = ['name', 'address', 'country', 'cnt', 'icons']
   constructor(private companiesService: CompaniesService) { }
 
   ngOnInit() {

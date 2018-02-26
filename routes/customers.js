@@ -19,20 +19,37 @@ router.get('/', (req, res)=>{
    })
   });
 
+router.get('/:id', (req, res)=>{
+  console.log(req.params.id);
+  db.query('SELECT * from customers WHERE ?', {customer_id: req.params.id}, function(err, rows, fields){
+    if (!err) {
+      res.send(rows);
+    } else console.log('error');
+  })
+})
+
 router.post('/',  (req, res)=>{
   console.log(req.body);
   var newCustomer = req.body;
-console.log("a",newCustomer);
-  db.query('select MAX(customer_id) as max_id FROM customers', function(err, rows, fields){
+console.log(newCustomer);
+  db.query('INSERT INTO customers SET ?', {firstName: newCustomer.firstName, lastName:newCustomer.lastName, company_id:newCustomer.company_id, Email:newCustomer.email, phone:newCustomer.phone}, function(err, rows, fields){
     if (!err){
       console.log(rows);
-      newCustomer.customer_id = rows.max_id+1;
-      console.log(newCustomer);
-      res.send(newCustomer);
-
+/*       res.status(200).send({});
+ */      res.send(rows);
     }else {console.log('error')};
   })
 });
 
+router.delete('/delete/:id', (req, res)=>{
+  console.log(req)
+  console.log(req.params.id);
+  db.query('DELETE FROM customers WHERE ?',{customer_id: req.params.id}, function(err, rows, fields){
+    if (!err) {
+      console.log('deleted');
+      res.send(rows)
+    }else {console.log('error')}
+  })
+});
 
 module.exports = router;

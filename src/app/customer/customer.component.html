@@ -1,3 +1,13 @@
-<p>
-  customer works!
-</p>
+<h1>{{customer.firstName}} {{customer.lastName}}</h1>
+<h5>{{customer.Email}} | {{customer.phone}}</h5>
+
+<mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile
+        *ngFor="let tile of tiles"
+        [colspan]="tile.cols"
+        [rowspan]="tile.rows"
+        [style.background]="tile.color">
+      <h1>{{tile.name}}</h1>
+      <h4>{{tile.mail}}</h4>
+    </mat-grid-tile>
+  </mat-grid-list>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { AddCustomerComponent } from '../add-customer/add-customer.component';
+import { AddCompanyComponent } from '../add-company/add-company.component';
 import { CustomersService } from '../customers.service';
 import { CompaniesService } from '../companies.service';
 import { CustomerModel } from '../models/customerModel';
@@ -16,6 +17,7 @@ import { CompanyModel } from '../models/companyModel';
 export class NavComponent implements OnInit {
 value:number;
 newCustomer: CustomerModel = new CustomerModel();
+newCompany: CompanyModel = new CompanyModel();
 companiesNames: {company_id: number, name: string}[] = new Array<{company_id: number, name: string}>();
   constructor(public dialog: MatDialog, private customersService: CustomersService, private companiesService: CompaniesService) { }
 
@@ -35,7 +37,7 @@ companiesNames: {company_id: number, name: string}[] = new Array<{company_id: nu
     )
   }
 
-  openDialog(): void {
+  openDialogCustomer(): void {
     let dialogRef = this.dialog.open(AddCustomerComponent, {
       width: '50vw',
       data: { customer: this.newCustomer, companies: this.companiesNames }
@@ -46,10 +48,31 @@ companiesNames: {company_id: number, name: string}[] = new Array<{company_id: nu
       this.newCustomer = result; 
       console.log(result);
       this.customersService.addCustomer(result).subscribe(
-        data=> console.log(data),
+        data=> {
+          this.customersService.customersChange();
+        },
         error=>{console.log(error);}
       );
    });
+}
+
+openDialogCompany(): void {
+  let dialogRef = this.dialog.open(AddCompanyComponent, {
+    width: '50vw',
+    data: { company: this.newCompany}
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    console.log(result);
+    this.newCompany = result; 
+/*     console.log(result);
+    this.customersService.addCustomer(result).subscribe(
+      data=> {
+        this.customersService.customersChange();
+      },
+      error=>{console.log(error);}
+    ); */
+ });
 }
 
   }

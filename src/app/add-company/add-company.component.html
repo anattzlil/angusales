@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Company Details</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.company.name" placeholder="Company Name">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.company.address" placeholder="Address">
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput [(ngModel)]="data.company.country" placeholder="Country">
+  </mat-form-field>
+  <br>
+</div>
+
+
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.company" cdkFocusInitial>Submit</button>
+</div>

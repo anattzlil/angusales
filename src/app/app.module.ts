@@ -13,6 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatGridListModule} from '@angular/material/grid-list';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 
@@ -26,6 +27,7 @@ import { CompaniesComponent } from './companies/companies.component';
 import { CompaniesService } from './companies.service';
 import { CustomerComponent } from './customer/customer.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { AddCompanyComponent } from './add-company/add-company.component';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
     NavComponent,
     CompaniesComponent,
     CustomerComponent,
-    AddCustomerComponent
+    AddCustomerComponent,
+    AddCompanyComponent
   ],
   imports: [
     MatDialogModule,
@@ -55,6 +58,6 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
   ],
   providers: [CustomersService, CompaniesService],
   bootstrap: [AppComponent],
-  entryComponents: [NavComponent, AddCustomerComponent],
+  entryComponents: [NavComponent, AddCustomerComponent, AddCompanyComponent],
 })
 export class AppModule { }

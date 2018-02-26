@@ -44,7 +44,8 @@ companiesNames: {company_id: number, name: string}[] = new Array<{company_id: nu
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+      console.log('closed');
+      if (result !== undefined){
       this.newCustomer = result; 
       console.log(result);
       this.customersService.addCustomer(result).subscribe(
@@ -52,7 +53,7 @@ companiesNames: {company_id: number, name: string}[] = new Array<{company_id: nu
           this.customersService.customersChange();
         },
         error=>{console.log(error);}
-      );
+      );}
    });
 }
 
@@ -63,7 +64,7 @@ openDialogCompany(): void {
   });
 
   dialogRef.afterClosed().subscribe(result => {
-    console.log(result);
+    if (result !== undefined){
     this.newCompany = result; 
     console.log(result);
     this.companiesService.addCompany(result).subscribe(
@@ -71,7 +72,7 @@ openDialogCompany(): void {
         this.companiesService.CompaniesChanged();
       },
       error=>{console.log(error);}
-    );
+    );}
  });
 }
 

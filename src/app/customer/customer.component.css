@@ -1,3 +1,55 @@
-.mail {
-    font-size: 10px;
+.example-card {
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  border: 20px solid #ee6d72;
+
+}
+
+.container {
+  margin-top: 7%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container{
+  display: flex;
+  max-width: 40%;
+  height: auto;
+  margin: 5% !important;
+  align-items: center;
+}
+
+h3 {
+  font-weight: 900;
+  margin-left: -10%;
+  color: #5f9ea0;
+}
+
+h6 {
+  margin-left: -10%;
+}
+hr {
+  margin-top: 5%;
+  height: 20px;
+  border: 0;
+  box-shadow: 0 10px #5f9ea0 inset;
+  width: 30px;
+  font-weight: 900;
+  margin-left: -10%;
+}
+
+img {
+  padding-top: -10%;
+}
+
+
+.mat-card-image:first-child {
+  margin-top:0 !important; 
+}
+
+.mat-card-image {
+  margin: 0 -24px 0px -24px !important; 
 }

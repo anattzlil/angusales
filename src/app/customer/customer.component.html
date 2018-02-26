@@ -1,13 +1,20 @@
-<h1>{{customer.firstName}} {{customer.lastName}}</h1>
-<h5>{{customer.Email}} | {{customer.phone}}</h5>
-
-<mat-grid-list cols="4" rowHeight="50px">
-    <mat-grid-tile
-        *ngFor="let tile of tiles"
-        [colspan]="tile.cols"
-        [rowspan]="tile.rows"
-        [style.background]="tile.color">
-      <h3 class="name">{{tile.name}}</h3>
-      <h4 class="mail">{{tile.mail}}</h4>
-    </mat-grid-tile>
-  </mat-grid-list>
+<div class="container">
+<mat-card class="example-card">
+  <div class="img-container">
+    <img mat-card-image src={{customer.img}} alt={{customer.firstName}}>
+  </div>
+  <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+  </mat-card-header>
+  <mat-card-content>
+      <h3>{{customer.firstName}} {{customer.lastName}}</h3>
+      <h6>{{customer.Email}} | {{customer.phone}}</h6>
+    <hr>
+      <h6>{{customer.name}}</h6>
+  </mat-card-content>
+<!--     <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions> -->
+  </mat-card>
+</div>

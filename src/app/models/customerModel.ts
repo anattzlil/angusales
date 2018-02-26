@@ -5,6 +5,7 @@ export class CustomerModel {
     company_id: number;
     Email: string;
     phone: string;
+    img: string = "";
     comments: [{
         dateAdded: Date,
         text: string

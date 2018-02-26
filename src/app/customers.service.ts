@@ -22,8 +22,8 @@ reRenderCustomers : EventEmitter<CustomerModel[]> = new EventEmitter();
     return this.http.get<CustomerModel>('api/customers/'+id);
   }
 
-  addCustomer(newCustomer): Observable<CustomerModel>{
-    return this.http.post<CustomerModel>('api/customers', newCustomer);
+  addCustomer(newCustomer): Observable<any>{
+    return this.http.post<any>('api/customers', newCustomer);
   }
 
   getReRenderEmitterCustomers(){

@@ -29,7 +29,7 @@ router.get('/', (req, res)=>{
 
 router.get('/:id', (req, res)=>{
   console.log(req.params.id);
-  db.query('SELECT * from customers WHERE ?', {customer_id: req.params.id}, function(err, rows, fields){
+  db.query('SELECT customers.customer_id, customers.firstName, customers.lastName, customers.Email, customers.phone, customers.img, companies.name from customers inner join companies on customers.company_id = companies.company_id WHERE customer_id =' + req.params.id, function(err, rows, fields){
     if (!err) {
       res.send(rows);
     } else console.log('error');
@@ -40,7 +40,7 @@ router.post('/',  (req, res)=>{
   console.log(req.body);
   var newCustomer = req.body;
 console.log(newCustomer);
-  db.query('INSERT INTO customers SET ?', {firstName: newCustomer.firstName, lastName:newCustomer.lastName, company_id:newCustomer.company_id, Email:newCustomer.email, phone:newCustomer.phone}, function(err, rows, fields){
+  db.query('INSERT INTO customers SET ?', {firstName: newCustomer.firstName, lastName:newCustomer.lastName, company_id:newCustomer.company_id, Email:newCustomer.email, phone:newCustomer.phone, img:newCustomer.img}, function(err, rows, fields){
     if (!err){
       console.log(rows);
 /*       res.status(200).send({});

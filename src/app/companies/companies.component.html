@@ -4,7 +4,7 @@
   <mat-table [dataSource]="companies">
 
     <!-- name Column -->
-    <ng-container matColumnDef="name">
+    <ng-container matColumnDef="name" >
       <mat-header-cell *matHeaderCellDef> Company Name </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
     </ng-container>

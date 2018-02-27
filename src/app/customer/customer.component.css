@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   border: 20px solid #ee6d72;
+  justify-content: space-around;
 
 }
 
@@ -52,4 +53,25 @@ img {
 
 .mat-card-image {
   margin: 0 -24px 0px -24px !important; 
+}
+
+mat-card-actions {
+  margin-left: -17%;
+}
+
+.no-image {
+/*   padding-top: -10%;
+ */height: 250px;
+width: 250px;
+border: 10px solid #5f9ea0;
+margin-right: 20%;
+}
+
+line {
+  stroke:#5f9ea0;
+  stroke-width:10px
+}
+
+.space {
+margin-right: 20px;
 }

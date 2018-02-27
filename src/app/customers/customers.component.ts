@@ -49,7 +49,7 @@ export class CustomersComponent implements OnInit {
   deleteCustomer(customer){
     console.log('clicked');
     console.log(customer);
-    this.customerService.deleteCustomer({customer}).subscribe(
+    this.customerService.deleteCustomer(customer).subscribe(
       data=>{
         console.log(data);
         this.getCustomers();

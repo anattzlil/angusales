@@ -1,20 +1,30 @@
 <div class="container">
 <mat-card class="example-card">
-  <div class="img-container">
-    <img mat-card-image src={{customer.img}} alt={{customer.firstName}}>
+  <div *ngIf="customer.img !== null" class="img-container">
+    <img  mat-card-image src={{customer.img}} alt={{customer.firstName}}>
   </div>
-  <mat-card-header>
+  <div *ngIf="customer.img === null" class="img-container">
+      <div class="no-image">
+          <svg height="240" width="170">
+              <line x1="0" y1="0" x2="200" y2="265" />
+              <line x1="170" y1="0" x2="-25" y2="265" />
+            </svg>
+          </div>
+    </div>
+<!--   <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-  </mat-card-header>
+  </mat-card-header> -->
+  <div class="space"></div>
   <mat-card-content>
       <h3>{{customer.firstName}} {{customer.lastName}}</h3>
       <h6>{{customer.Email}} | {{customer.phone}}</h6>
     <hr>
       <h6>{{customer.name}}</h6>
+      <mat-card-actions>
+          <button mat-button routerLink="/" (click)="onDelete()">Delete Customer</button>
+          <button mat-button routerLink="/">Back</button>
+        </mat-card-actions>
   </mat-card-content>
-<!--     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions> -->
+
   </mat-card>
 </div>

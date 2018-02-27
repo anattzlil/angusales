@@ -35,8 +35,8 @@ reRenderCustomers : EventEmitter<CustomerModel[]> = new EventEmitter();
   }
 
   deleteCustomer(customer){
-    console.log(customer.customer.customer_id);
-    return this.http.delete<CustomerModel>('api/customers/delete/'+ customer.customer.customer_id);
+    console.log(customer.customer_id);
+    return this.http.delete<CustomerModel>('api/customers/delete/'+ customer.customer_id);
   }
   searchCustomer(input){
     console.log(input);
